@@ -1,12 +1,20 @@
 # Changelog
 
-## [Unreleased](https://github.com/duonrun/wire/compare/0.4.0...HEAD)
+## [Unreleased](https://github.com/duonrun/wire/compare/0.5.0...HEAD)
+
+No changes yet.
+
+## [0.5.0](https://github.com/duonrun/wire/releases/tag/0.5.0) (2026-04-15)
+
+### Breaking Changes
+
+- Exceptions thrown by user code inside constructors, factory methods, and `#[Call]` methods now bubble unchanged instead of being wrapped in `WireException`.
 
 ### Changed
 
-- `Creator` now resolves class-string definitions from `WireContainer::definition()` using the mapped class name, which keeps interface-to-class mappings working for wire-enabled containers.
-- Added scope-oriented tests to verify parent-owned definitions, callable resolution, and injected entry resolution through scoped containers.
-- Passing positional `predefinedArgs` is now rejected when a callable or constructor uses `Inject` attributes. In that case, predefined arguments must be named.
+- `Creator` now autowires class-string definitions returned by `WireContainer::definition()` using the mapped class name, so interface-to-class mappings work correctly in containers that use Wire internally.
+- Objects fetched directly from a container are no longer post-processed with `#[Call]` hooks.
+- When a callable, constructor, or factory method uses `Inject` attributes, `predefinedArgs` must be named. Positional argument lists are rejected.
 
 ## [0.4.0](https://github.com/duonrun/wire/releases/tag/0.4.0) (2026-01-30)
 
