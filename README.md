@@ -2,10 +2,10 @@
 
 <!-- prettier-ignore-start -->
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE.md)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/622ad71c3dc4461d813ff854156deadf)](https://app.codacy.com/gh/duonrun/wire/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
-[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/622ad71c3dc4461d813ff854156deadf)](https://app.codacy.com/gh/duonrun/wire/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage)
-[![Psalm level](https://shepherd.dev/github/duonrun/wire/level.svg?)](https://shepherd.dev/github/duonrun/wire)
-[![Psalm coverage](https://shepherd.dev/github/duonrun/wire/coverage.svg?)](https://shepherd.dev/github/duonrun/wire)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/622ad71c3dc4461d813ff854156deadf)](https://app.codacy.com/gh/duoncode/wire/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/622ad71c3dc4461d813ff854156deadf)](https://app.codacy.com/gh/duoncode/wire/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage)
+[![Psalm level](https://shepherd.dev/github/duoncode/wire/level.svg?)](https://shepherd.dev/github/duoncode/wire)
+[![Psalm coverage](https://shepherd.dev/github/duoncode/wire/coverage.svg?)](https://shepherd.dev/github/duoncode/wire)
 <!-- prettier-ignore-end -->
 
 **_Wire_** provides an autowiring object creator that utilizes PHP's reflection capabilities to automatically resolve constructor arguments recursively. It additionally comes with classes that assist in resolving arguments of callables such as functions, methods, closures or class constructors. It can be combined with a PSR-11 dependency injection container.
