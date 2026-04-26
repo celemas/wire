@@ -4,7 +4,7 @@
 
 No changes yet.
 
-## [0.5.0](https://github.com/duoncode/wire/releases/tag/0.5.0) (2026-04-15)
+## [0.5.0](https://github.com/duoncode/wire/releases/tag/0.5.0) (2026-04-26)
 
 ### Breaking Changes
 
