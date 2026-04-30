@@ -6,9 +6,6 @@ namespace Duon\Wire\Tests\Fixtures;
 
 class TestClassApp
 {
-	/**
-	 * @param array<never, never>|array<string, mixed> -- Stores additional user defined settings
-	 */
 	public function __construct(
 		public readonly string $app = 'chuck',
 		public readonly bool $debug = false,

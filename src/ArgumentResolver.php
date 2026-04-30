@@ -45,10 +45,10 @@ final class ArgumentResolver
 			$name = $param->getName();
 
 			if (isset($combinedArgs[$name])) {
-				/** @psalm-var list<mixed> */
+				/** @var list<mixed> */
 				$args[] = $combinedArgs[$name];
 			} else {
-				/** @psalm-var list<mixed> */
+				/** @var list<mixed> */
 				$args[] = $parameterResolver->resolve($param, $predefinedTypes, $injectCallback);
 			}
 		}
@@ -62,7 +62,6 @@ final class ArgumentResolver
 		array $predefinedTypes,
 		?callable $injectCallback,
 	): array {
-		/** @var array<non-empty-string, mixed> */
 		$result = [];
 
 		foreach ($rfn->getParameters() as $param) {

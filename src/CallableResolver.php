@@ -17,7 +17,7 @@ class CallableResolver
 		protected readonly CreatorInterface $creator,
 	) {}
 
-	/** @psalm-param callable-array|callable $callable */
+	/** @param callable $callable */
 	public function resolve(
 		array|callable $callable,
 		array $predefinedArgs = [],

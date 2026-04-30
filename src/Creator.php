@@ -22,7 +22,7 @@ class Creator implements CreatorInterface
 		protected readonly Container|WireContainer|null $container = null,
 	) {}
 
-	/** @psalm-param class-string $class */
+	/** @param class-string $class */
 	#[Override]
 	public function create(
 		string $class,
@@ -91,7 +91,7 @@ class Creator implements CreatorInterface
 		return $this->applyCallAttributes($instance, $predefinedTypes, $injectCallback);
 	}
 
-	/** @psalm-param class-string $class */
+	/** @param class-string $class */
 	protected function resolveConstructor(
 		string $class,
 		array $predefinedArgs,
@@ -130,7 +130,7 @@ class Creator implements CreatorInterface
 			$callAttr = $callAttr->newInstance();
 			$methodToResolve = $callAttr->method;
 
-			/** @psalm-var callable */
+			/** @var callable $callable */
 			$callable = [$instance, $methodToResolve];
 			$args = new CallableResolver($this)->resolve(
 				$callable,
@@ -144,9 +144,7 @@ class Creator implements CreatorInterface
 		return $instance;
 	}
 
-	/**
-	 * @param class-string $class
-	 */
+	/** @param class-string $class */
 	private static function getReflectionClass(string $class): ReflectionClass
 	{
 		return self::$reflectionCache[$class] ??= new ReflectionClass($class);

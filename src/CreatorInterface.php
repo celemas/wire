@@ -8,7 +8,7 @@ use Psr\Container\ContainerInterface as Container;
 
 interface CreatorInterface
 {
-	/** @psalm-param class-string $class */
+	/** @param class-string $class */
 	public function create(
 		string $class,
 		array $predefinedArgs = [],

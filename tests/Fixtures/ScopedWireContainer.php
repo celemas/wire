@@ -15,9 +15,7 @@ final class ScopedWireContainer implements WireContainer
 	public const string SCOPED = 'scoped';
 	public const string TRANSIENT = 'transient';
 
-	/**
-	 * @var array<non-empty-string, array{definition: mixed, lifetime: string}>
-	 */
+	/** @var array<non-empty-string, array{definition: mixed, lifetime: string}> */
 	protected array $entries = [];
 
 	/** @var array<non-empty-string, mixed> */

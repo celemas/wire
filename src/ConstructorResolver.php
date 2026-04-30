@@ -16,7 +16,7 @@ class ConstructorResolver
 		protected readonly CreatorInterface $creator,
 	) {}
 
-	/** @psalm-param ReflectionClass|class-string $class */
+	/** @param ReflectionClass|class-string $class */
 	public function resolve(
 		ReflectionClass|string $class,
 		array $predefinedArgs = [],
