@@ -2,7 +2,7 @@
 
 ## [Unreleased](https://github.com/duoncode/wire/compare/0.5.0...HEAD)
 
-No changes yet.
+No notable changes since the last release.
 
 ## [0.5.0](https://github.com/duoncode/wire/releases/tag/0.5.0) (2026-04-26)
 
