@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Duon\Wire;
+namespace Celemas\Wire;
 
-use Duon\Wire\Exception\WireException;
+use Celemas\Wire\Exception\WireException;
 use ReflectionNamedType;
 use ReflectionParameter;
 

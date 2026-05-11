@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Duon\Wire\Tests;
+namespace Celemas\Wire\Tests;
 
-use Duon\Wire\ConstructorResolver;
-use Duon\Wire\Inject;
-use Duon\Wire\Tests\Fixtures\TestClass;
-use Duon\Wire\Tests\Fixtures\TestClassConstructor;
-use Duon\Wire\Tests\Fixtures\TestClassInjectCallback;
-use Duon\Wire\Tests\Fixtures\TestClassUsingNested;
+use Celemas\Wire\ConstructorResolver;
+use Celemas\Wire\Inject;
+use Celemas\Wire\Tests\Fixtures\TestClass;
+use Celemas\Wire\Tests\Fixtures\TestClassConstructor;
+use Celemas\Wire\Tests\Fixtures\TestClassInjectCallback;
+use Celemas\Wire\Tests\Fixtures\TestClassUsingNested;
 
 final class ConstructorResolverTest extends TestCase
 {

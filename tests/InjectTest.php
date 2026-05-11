@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Duon\Wire\Tests;
+namespace Celemas\Wire\Tests;
 
-use Duon\Wire\CallableResolver;
-use Duon\Wire\ConstructorResolver;
-use Duon\Wire\Creator;
-use Duon\Wire\Exception\WireException;
-use Duon\Wire\Inject;
-use Duon\Wire\Tests\Fixtures\Container;
-use Duon\Wire\Tests\Fixtures\TestClass;
-use Duon\Wire\Tests\Fixtures\TestClassApp;
-use Duon\Wire\Tests\Fixtures\TestClassInject;
-use Duon\Wire\Type;
+use Celemas\Wire\CallableResolver;
+use Celemas\Wire\ConstructorResolver;
+use Celemas\Wire\Creator;
+use Celemas\Wire\Exception\WireException;
+use Celemas\Wire\Inject;
+use Celemas\Wire\Tests\Fixtures\Container;
+use Celemas\Wire\Tests\Fixtures\TestClass;
+use Celemas\Wire\Tests\Fixtures\TestClassApp;
+use Celemas\Wire\Tests\Fixtures\TestClassInject;
+use Celemas\Wire\Type;
 
 final class InjectTest extends TestCase
 {

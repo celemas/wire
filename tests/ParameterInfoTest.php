@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Duon\Wire\Tests;
+namespace Celemas\Wire\Tests;
 
-use Duon\Wire\ParameterInfo;
-use Duon\Wire\Tests\Fixtures\TestClassApp;
-use Duon\Wire\Tests\Fixtures\TestClassUnionTypeConstructor;
+use Celemas\Wire\ParameterInfo;
+use Celemas\Wire\Tests\Fixtures\TestClassApp;
+use Celemas\Wire\Tests\Fixtures\TestClassUnionTypeConstructor;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionClass;
 use ReflectionFunction;
@@ -21,9 +21,9 @@ final class ParameterInfoTest extends TestCase
 		$param = $constructor->getParameters()[0];
 
 		$this->assertSame(
-			'Duon\Wire\Tests\Fixtures\TestClassUnionTypeConstructor::__construct('
-			. '..., Duon\Wire\Tests\Fixtures\TestClassApp|'
-			. 'Duon\Wire\Tests\Fixtures\TestClassRequest $param, ...)',
+			'Celemas\Wire\Tests\Fixtures\TestClassUnionTypeConstructor::__construct('
+			. '..., Celemas\Wire\Tests\Fixtures\TestClassApp|'
+			. 'Celemas\Wire\Tests\Fixtures\TestClassRequest $param, ...)',
 			ParameterInfo::info($param),
 		);
 	}
@@ -36,8 +36,8 @@ final class ParameterInfoTest extends TestCase
 		$param = $rfun->getParameters()[0];
 
 		$this->assertSame(
-			'Duon\Wire\Tests\ParameterInfoTest::{closure:Duon\Wire\Tests\ParameterInfoTest'
-			. '::testParameterInfoFunction():33}(..., Duon\Wire\Tests\Fixtures\TestClassApp $app, ...)',
+			'Celemas\Wire\Tests\ParameterInfoTest::{closure:Celemas\Wire\Tests\ParameterInfoTest'
+			. '::testParameterInfoFunction():33}(..., Celemas\Wire\Tests\Fixtures\TestClassApp $app, ...)',
 			ParameterInfo::info($param),
 		);
 	}

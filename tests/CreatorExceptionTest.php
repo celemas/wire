@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Duon\Wire\Tests;
+namespace Celemas\Wire\Tests;
 
-use Duon\Wire\Creator;
-use Duon\Wire\Tests\Fixtures\TestClassThrowingCall;
-use Duon\Wire\Tests\Fixtures\TestClassThrowingConstructor;
-use Duon\Wire\Tests\Fixtures\TestClassThrowingFactory;
+use Celemas\Wire\Creator;
+use Celemas\Wire\Tests\Fixtures\TestClassThrowingCall;
+use Celemas\Wire\Tests\Fixtures\TestClassThrowingConstructor;
+use Celemas\Wire\Tests\Fixtures\TestClassThrowingFactory;
 use InvalidArgumentException;
 use LogicException;
 use RuntimeException;

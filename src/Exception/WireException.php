@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Duon\Wire\Exception;
+namespace Celemas\Wire\Exception;
 
 use RuntimeException;
 

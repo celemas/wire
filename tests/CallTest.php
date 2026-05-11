@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Duon\Wire\Tests;
+namespace Celemas\Wire\Tests;
 
-use Duon\Wire\Call;
-use Duon\Wire\Creator;
-use Duon\Wire\Exception\WireException;
-use Duon\Wire\Tests\Fixtures\Container;
-use Duon\Wire\Tests\Fixtures\TestClassApp;
-use Duon\Wire\Tests\Fixtures\TestClassCall;
-use Duon\Wire\Tests\Fixtures\TestClassInject;
-use Duon\Wire\Tests\Fixtures\TestClassRequest;
+use Celemas\Wire\Call;
+use Celemas\Wire\Creator;
+use Celemas\Wire\Exception\WireException;
+use Celemas\Wire\Tests\Fixtures\Container;
+use Celemas\Wire\Tests\Fixtures\TestClassApp;
+use Celemas\Wire\Tests\Fixtures\TestClassCall;
+use Celemas\Wire\Tests\Fixtures\TestClassInject;
+use Celemas\Wire\Tests\Fixtures\TestClassRequest;
 
 final class CallTest extends TestCase
 {

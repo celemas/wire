@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Duon\Wire\Tests;
+namespace Celemas\Wire\Tests;
 
-use Duon\Wire\Creator;
-use Duon\Wire\Exception\WireException;
-use Duon\Wire\Tests\Fixtures\TestClassDefault;
-use Duon\Wire\Tests\Fixtures\TestClassIntersectionTypeConstructor;
-use Duon\Wire\Tests\Fixtures\TestClassUnionTypeConstructor;
-use Duon\Wire\Tests\Fixtures\TestClassUntypedConstructor;
+use Celemas\Wire\Creator;
+use Celemas\Wire\Exception\WireException;
+use Celemas\Wire\Tests\Fixtures\TestClassDefault;
+use Celemas\Wire\Tests\Fixtures\TestClassIntersectionTypeConstructor;
+use Celemas\Wire\Tests\Fixtures\TestClassUnionTypeConstructor;
+use Celemas\Wire\Tests\Fixtures\TestClassUntypedConstructor;
 use ReflectionException;
 
 final class CreatorUnresolvableTest extends TestCase
@@ -35,11 +35,11 @@ final class CreatorUnresolvableTest extends TestCase
 		$creator = new Creator();
 
 		try {
-			$creator->create('Duon\\Wire\\Tests\\Fixtures\\ClassThatDoesNotExist');
+			$creator->create('Celemas\\Wire\\Tests\\Fixtures\\ClassThatDoesNotExist');
 			$this->fail('Expected WireException to be thrown');
 		} catch (WireException $e) {
 			$this->assertStringContainsString(
-				'Unresolvable: Duon\\Wire\\Tests\\Fixtures\\ClassThatDoesNotExist',
+				'Unresolvable: Celemas\\Wire\\Tests\\Fixtures\\ClassThatDoesNotExist',
 				$e->getMessage(),
 			);
 			$this->assertInstanceOf(ReflectionException::class, $e->getPrevious());

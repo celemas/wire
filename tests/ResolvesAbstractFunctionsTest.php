@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Duon\Wire\Tests;
+namespace Celemas\Wire\Tests;
 
-use Duon\Wire\Creator;
-use Duon\Wire\Tests\Fixtures\ResolvesAbstractFunctionsProxy;
-use Duon\Wire\Tests\Fixtures\TestClass;
-use Duon\Wire\Tests\Fixtures\TestClassInject;
-use Duon\Wire\Tests\Fixtures\TestClassObjectArgs;
+use Celemas\Wire\Creator;
+use Celemas\Wire\Tests\Fixtures\ResolvesAbstractFunctionsProxy;
+use Celemas\Wire\Tests\Fixtures\TestClass;
+use Celemas\Wire\Tests\Fixtures\TestClassInject;
+use Celemas\Wire\Tests\Fixtures\TestClassObjectArgs;
 use ReflectionClass;
 use ReflectionMethod;
 

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Duon\Wire\Tests\Fixtures;
+namespace Celemas\Wire\Tests\Fixtures;
 
-use Duon\Wire\Inject;
-use Duon\Wire\Type;
+use Celemas\Wire\Inject;
+use Celemas\Wire\Type;
 
 class TestClassInjectCallback
 {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Duon\Wire\Tests\Fixtures;
+namespace Celemas\Wire\Tests\Fixtures;
 
+use Celemas\Wire\WireContainer;
 use Closure;
-use Duon\Wire\WireContainer;
 use Exception;
 use Psr\Container\NotFoundExceptionInterface as NotFoundException;
 

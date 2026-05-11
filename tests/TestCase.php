@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Duon\Wire\Tests;
+namespace Celemas\Wire\Tests;
 
-use Duon\Wire\Creator;
-use Duon\Wire\Tests\Fixtures\Container;
-use Duon\Wire\Tests\Fixtures\ScopedWireContainer;
-use Duon\Wire\Tests\Fixtures\WireizedContainer;
+use Celemas\Wire\Creator;
+use Celemas\Wire\Tests\Fixtures\Container;
+use Celemas\Wire\Tests\Fixtures\ScopedWireContainer;
+use Celemas\Wire\Tests\Fixtures\WireizedContainer;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
 class TestCase extends BaseTestCase

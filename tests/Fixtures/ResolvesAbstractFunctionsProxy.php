@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Duon\Wire\Tests\Fixtures;
+namespace Celemas\Wire\Tests\Fixtures;
 
-use Duon\Wire\CreatorInterface;
-use Duon\Wire\ResolvesAbstractFunctions;
+use Celemas\Wire\CreatorInterface;
+use Celemas\Wire\ResolvesAbstractFunctions;
 use ReflectionFunctionAbstract;
 use ReflectionParameter;
 

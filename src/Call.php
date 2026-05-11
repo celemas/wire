@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Duon\Wire;
+namespace Celemas\Wire;
 
 use Attribute;
-use Duon\Wire\Exception\WireException;
+use Celemas\Wire\Exception\WireException;
 
 /** @psalm-api */
 #[Attribute(Attribute::IS_REPEATABLE | Attribute::TARGET_CLASS)]
