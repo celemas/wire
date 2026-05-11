@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 require __DIR__ . '/../../vendor/autoload.php';
 
-use Duon\Wire\Exception\WireException;
-use Duon\Wire\Wire;
+use Celemas\Wire\Exception\WireException;
+use Celemas\Wire\Wire;
 
 class Value
 {

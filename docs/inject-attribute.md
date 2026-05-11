@@ -28,13 +28,13 @@ class="hljs-title">Model</span> </span>{ <span class="dots">...</span> </code>
 
 ## The `Inject` instance
 
-The first parameter `$value` of the `Inject` constructor is required and of type mixed. The second parameter `$type` is optional and of type `Duon\Wire\Type` which is a enum. Both are availabe as public instance properties. Every additional argument is avalable via the `meta` property.
+The first parameter `$value` of the `Inject` constructor is required and of type mixed. The second parameter `$type` is optional and of type `Celemas\Wire\Type` which is a enum. Both are availabe as public instance properties. Every additional argument is avalable via the `meta` property.
 
 ```php
 --8<-- "inject-instance.php:7"
 ```
 
-!!! info "Note" In most cases, you will only work directly with an `Inject` instance if you use the Inject type `Type::Callback`. See [below](#duonwiretypecallback).
+!!! info "Note" In most cases, you will only work directly with an `Inject` instance if you use the Inject type `Type::Callback`. See [below](#celemaswiretypecallback).
 
 ## How injected argument values are determined
 
@@ -85,16 +85,16 @@ function withLiteralParams(
 
 If you want to bypass the string rules or be explicit about the values you inject, you can specifiy the type of the injected value. Additionally, with that feature, you can have control over how a value is generated.
 
-The inject type is passed as second argument to the `Inject` attribute und must be of the data type `Duon\Wire\Type`:
+The inject type is passed as second argument to the `Inject` attribute und must be of the data type `Celemas\Wire\Type`:
 
 ```php
 // a valid array
-#[Inject('value', Duon\Wire\Type::Literal)]
+#[Inject('value', Celemas\Wire\Type::Literal)]
 ```
 
 The available types are:
 
-### `Duon\Wire\Type::Literal`
+### `Celemas\Wire\Type::Literal`
 
 Returns the value as is.
 
@@ -103,7 +103,7 @@ Returns the value as is.
 public function myCallable(string $value): void
 ```
 
-### `Duon\Wire\Type::Entry`
+### `Celemas\Wire\Type::Entry`
 
 Uses the value as id to fetch a value from the [container](container.md).
 
@@ -125,7 +125,7 @@ public function myCallable(
 ): void
 ```
 
-### `Duon\Wire\Type::Create`
+### `Celemas\Wire\Type::Create`
 
 Must be a fully qualified class name which the creator attemtps to create.
 
@@ -136,7 +136,7 @@ public function myCallable(
 ): void
 ```
 
-### `Duon\Wire\Type::Env`
+### `Celemas\Wire\Type::Env`
 
 The value is assumed to be the name an environment variable. It attempts to read the environment variable using PHP's internal function `getenv` and then returns its value.
 
@@ -149,7 +149,7 @@ public function myCallable(
 }
 ```
 
-### `Duon\Wire\Type::Callback`
+### `Celemas\Wire\Type::Callback`
 
 All resolving methods, like `Creator::create` or `CallableResolver::resolve`, accept a callback function for the parameter `$injectCallback` that will be passed all `Inject` attributes of type `Type::Callback`. The returned value of the callback is then used for the annotated parameter.
 

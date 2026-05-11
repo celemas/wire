@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 require __DIR__ . '/../../vendor/autoload.php';
 
-use Duon\Wire\CallableResolver;
-use Duon\Wire\ConstructorResolver;
-use Duon\Wire\Creator;
+use Celemas\Wire\CallableResolver;
+use Celemas\Wire\ConstructorResolver;
+use Celemas\Wire\Creator;
 // A PSR-11 container implementation like
-// https://duon.dev/registry or https://php-di.org
-use Duon\Wire\Tests\Fixtures\Container;
+// https://celemas.dev/registry or https://php-di.org
+use Celemas\Wire\Tests\Fixtures\Container;
 
 $container = new Container();
 $creator = new Creator($container);

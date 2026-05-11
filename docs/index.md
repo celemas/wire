@@ -1,11 +1,11 @@
-# Duon Wire
+# Celemas Wire
 
 **_Wire_** provides an autowiring object creator that utilizes PHP's reflection capabilities to automatically resolve constructor arguments recursively. It additionally comes with classes that assist in resolving arguments of callables such as functions, methods, closures or class constructors. It can be combined with a PSR-11 dependency injection container.
 
 ## Installation
 
 ```bash
-composer require duon/wire
+composer require celemas/wire
 ```
 
 ## How to create objects

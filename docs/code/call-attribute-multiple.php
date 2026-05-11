@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 require __DIR__ . '/../../vendor/autoload.php';
 
-use Duon\Wire\Call;
-use Duon\Wire\Wire;
+use Celemas\Wire\Call;
+use Celemas\Wire\Wire;
 
 class Value
 {
