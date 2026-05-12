@@ -1,10 +1,11 @@
 # Celemas Wire
 
 <!-- prettier-ignore-start -->
+[![ci](https://github.com/celemas/wire/actions/workflows/ci.yml/badge.svg)](https://github.com/celemas/wire/actions)
+[![codecov](https://codecov.io/github/celemas/wire/graph/badge.svg?token=NPBYNZ7P2B)](https://codecov.io/github/celemas/wire)
+[![psalm coverage](https://shepherd.dev/github/celemas/wire/coverage.svg?)](https://shepherd.dev/github/celemas/wire)
+[![psalm level](https://shepherd.dev/github/celemas/wire/level.svg?)](https://shepherd.dev/github/celemas/wire)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE.md)
-[![CI](https://github.com/celemas/wire/actions/workflows/ci.yml/badge.svg)](https://github.com/celemas/wire/actions)
-[![Psalm level](https://shepherd.dev/github/celemas/wire/level.svg?)](https://shepherd.dev/github/celemas/wire)
-[![Psalm coverage](https://shepherd.dev/github/celemas/wire/coverage.svg?)](https://shepherd.dev/github/celemas/wire)
 <!-- prettier-ignore-end -->
 
 **_Wire_** provides an autowiring object creator that utilizes PHP's reflection capabilities to automatically resolve constructor arguments recursively. It additionally comes with classes that assist in resolving arguments of callables such as functions, methods, closures or class constructors. It can be combined with a PSR-11 dependency injection container.
