@@ -1,9 +1,9 @@
 {
-	"name": "duon/wire",
+	"name": "celemas/wire",
 	"description": "Autowiring object creator and argument resolver",
 	"type": "library",
 	"keywords": [
-		"duon",
+		"celemas",
 		"autowire",
 		"autowiring",
 		"factory",
@@ -13,18 +13,18 @@
 	"authors": [
 		{
 			"name": "Ernst",
-			"email": "ernst@duon.sh"
+			"email": "ernst@celemas.dev"
 		}
 	],
-	"homepage": "https://duon.sh/wire",
+	"homepage": "https://celemas.dev/wire",
 	"autoload": {
 		"psr-4": {
-			"Duon\\Wire\\": "src/"
+			"Celemas\\Wire\\": "src/"
 		}
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"Duon\\Wire\\Tests\\": "tests"
+			"Celemas\\Wire\\Tests\\": "tests"
 		}
 	},
 	"require": {
@@ -32,7 +32,7 @@
 		"psr/container": "^2.0"
 	},
 	"require-dev": {
-		"duon/dev": "^3.0"
+		"celemas/dev": "^3.0"
 	},
 	"scripts": {
 		"test": "./vendor/bin/phpunit --testdox --no-coverage --colors=always",
