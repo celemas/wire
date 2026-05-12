@@ -1,10 +1,14 @@
 # Changelog
 
-## [Unreleased](https://github.com/celemas/wire/compare/0.5.0...HEAD)
+## [Unreleased](https://github.com/celemas/wire/compare/0.6.0...HEAD)
+
+No notable changes since the last release.
+
+## [0.6.0](https://github.com/celemas/wire/releases/tag/0.6.0) (2026-05-12)
 
 ### Breaking Changes
 
-- Again, rename package metadata, root namespace, repository URLs, homepage, and contact email. This time to Celemas. This needs to stop.
+- Rename package metadata, root namespace, repository URLs, homepage, and author info.
 
 ## [0.5.0](https://github.com/celemas/wire/releases/tag/0.5.0) (2026-04-26)
 
