@@ -1,10 +1,12 @@
 # Changelog
 
-## [Unreleased](https://github.com/duoncode/wire/compare/0.5.0...HEAD)
+## [Unreleased](https://github.com/celemas/wire/compare/0.5.0...HEAD)
 
-No notable changes since the last release.
+### Breaking Changes
 
-## [0.5.0](https://github.com/duoncode/wire/releases/tag/0.5.0) (2026-04-26)
+- Again, rename package metadata, root namespace, repository URLs, homepage, and contact email. This time to Celemas. This needs to stop.
+
+## [0.5.0](https://github.com/celemas/wire/releases/tag/0.5.0) (2026-04-26)
 
 ### Breaking Changes
 
@@ -16,7 +18,7 @@ No notable changes since the last release.
 - Objects fetched directly from a container are no longer post-processed with `#[Call]` hooks.
 - When a callable, constructor, or factory method uses `Inject` attributes, `predefinedArgs` must be named. Positional argument lists are rejected.
 
-## [0.4.0](https://github.com/duoncode/wire/releases/tag/0.4.0) (2026-01-30)
+## [0.4.0](https://github.com/celemas/wire/releases/tag/0.4.0) (2026-01-30)
 
 ### Breaking Changes
 
@@ -29,7 +31,7 @@ No notable changes since the last release.
 
 - Improved performance by caching `ReflectionClass` instances in `Creator`.
 
-## [0.3.0](https://github.com/duoncode/wire/releases/tag/0.3.0) (2024-01-18)
+## [0.3.0](https://github.com/celemas/wire/releases/tag/0.3.0) (2024-01-18)
 
 ### Breaking Changes
 
@@ -43,7 +45,7 @@ No notable changes since the last release.
 - The optional `injectCallback` parameter to `ConstructorResolver::resolve`.
 - `Creator` now returns the container entry of the requested class if it exists. This way it supports instantiating interfaces if they are registered in the container.
 
-## [0.2.0](https://github.com/duoncode/wire/releases/tag/0.2.0) (2024-01-05)
+## [0.2.0](https://github.com/celemas/wire/releases/tag/0.2.0) (2024-01-05)
 
 Add predefined types.
 
@@ -53,7 +55,7 @@ Add predefined types.
 - The `predefinedTypes` parameter to `CallableResolver::resolve`.
 - The `predefinedTypes` parameter to `ConstructorResolver::resolve`.
 
-## [0.1.0](https://github.com/duoncode/wire/releases/tag/0.1.0) (2023-11-11)
+## [0.1.0](https://github.com/celemas/wire/releases/tag/0.1.0) (2023-11-11)
 
 Initial release.
 
