@@ -1,11 +1,11 @@
 # Celemas Wire
 
 <!-- prettier-ignore-start -->
-[![ci](https://github.com/celemas/wire/actions/workflows/ci.yml/badge.svg)](https://github.com/celemas/wire/actions)
-[![codecov](https://codecov.io/github/celemas/wire/graph/badge.svg?token=NPBYNZ7P2B)](https://codecov.io/github/celemas/wire)
-[![psalm coverage](https://shepherd.dev/github/celemas/wire/coverage.svg?)](https://shepherd.dev/github/celemas/wire)
-[![psalm level](https://shepherd.dev/github/celemas/wire/level.svg?)](https://shepherd.dev/github/celemas/wire)
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE.md)
+[![ci](https://codeberg.org/celemas/wire/badges/workflows/ci.yml/badge.svg?style=flat&logo=codeberg&logoColor=white&label=ci)](https://codeberg.org/celemas/wire/actions)
+[![code coverage](https://img.shields.io/endpoint?url=https%3A%2F%2Fcov.celemas.dev%2Fcelemas%2Fwire%2Fcode%2Fbadge.json)](https://cov.celemas.dev/celemas/wire/code)
+[![type coverage](https://img.shields.io/endpoint?url=https%3A%2F%2Fcov.celemas.dev%2Fcelemas%2Fwire%2Ftypes%2Fbadge-cover.json)](https://cov.celemas.dev/celemas/wire/types)
+[![psalm level](https://img.shields.io/endpoint?url=https%3A%2F%2Fcov.celemas.dev%2Fcelemas%2Fwire%2Ftypes%2Fbadge-level.json)](https://cov.celemas.dev/celemas/wire/types)
+[![Software License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
 <!-- prettier-ignore-end -->
 
 **_Wire_** provides an autowiring object creator that utilizes PHP's reflection capabilities to automatically resolve constructor arguments recursively. It additionally comes with classes that assist in resolving arguments of callables such as functions, methods, closures or class constructors. It can be combined with a PSR-11 dependency injection container.
