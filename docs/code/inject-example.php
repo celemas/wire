@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 require __DIR__ . '/../../vendor/autoload.php';
 
-use Celemas\Wire\Inject;
-use Celemas\Wire\Wire;
+use Celema\Wire\Inject;
+use Celema\Wire\Wire;
 
 class Model {}
 

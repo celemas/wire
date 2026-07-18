@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 require __DIR__ . '/../../vendor/autoload.php';
 
-use Celemas\Wire\Tests\Fixtures\Container;
-use Celemas\Wire\Wire;
+use Celema\Wire\Tests\Fixtures\Container;
+use Celema\Wire\Wire;
 
 interface ValueInterface
 {

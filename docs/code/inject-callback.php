@@ -6,10 +6,10 @@ declare(strict_types=1);
 
 require __DIR__ . '/../../vendor/autoload.php';
 
-use Celemas\Wire\Inject;
-use Celemas\Wire\Tests\Fixtures\Container;
-use Celemas\Wire\Type;
-use Celemas\Wire\Wire;
+use Celema\Wire\Inject;
+use Celema\Wire\Tests\Fixtures\Container;
+use Celema\Wire\Type;
+use Celema\Wire\Wire;
 
 class Value
 {

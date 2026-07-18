@@ -1,11 +1,11 @@
-# Celemas Wire
+# Celema Wire
 
 **_Wire_** provides an autowiring object creator that utilizes PHP's reflection capabilities to automatically resolve constructor arguments recursively. It additionally comes with classes that assist in resolving arguments of callables such as functions, methods, closures or class constructors. It can be combined with a PSR-11 dependency injection container.
 
 ## Installation
 
 ```bash
-composer require celemas/wire
+composer require celema/wire
 ```
 
 ## How to create objects

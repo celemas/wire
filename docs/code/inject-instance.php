@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 require __DIR__ . '/../../vendor/autoload.php';
 
-use Celemas\Wire\Inject;
-use Celemas\Wire\Type;
+use Celema\Wire\Inject;
+use Celema\Wire\Type;
 
 $inject = new Inject('value', Type::Literal, text: 'string', number: 13);
 
