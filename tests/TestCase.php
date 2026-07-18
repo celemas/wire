@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Celemas\Wire\Tests;
+namespace Celema\Wire\Tests;
 
-use Celemas\Wire\Creator;
-use Celemas\Wire\Tests\Fixtures\Container;
-use Celemas\Wire\Tests\Fixtures\ScopedWireContainer;
-use Celemas\Wire\Tests\Fixtures\WireizedContainer;
+use Celema\Wire\Creator;
+use Celema\Wire\Tests\Fixtures\Container;
+use Celema\Wire\Tests\Fixtures\ScopedWireContainer;
+use Celema\Wire\Tests\Fixtures\WireizedContainer;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
 class TestCase extends BaseTestCase

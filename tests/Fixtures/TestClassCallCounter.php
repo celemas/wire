@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Celemas\Wire\Tests\Fixtures;
+namespace Celema\Wire\Tests\Fixtures;
 
-use Celemas\Wire\Call;
+use Celema\Wire\Call;
 
 #[Call('increment')]
 class TestClassCallCounter

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Celemas\Wire\Tests;
+namespace Celema\Wire\Tests;
 
-use Celemas\Wire\Creator;
-use Celemas\Wire\Tests\Fixtures\ResolvesAbstractFunctionsProxy;
-use Celemas\Wire\Tests\Fixtures\TestClass;
-use Celemas\Wire\Tests\Fixtures\TestClassInject;
-use Celemas\Wire\Tests\Fixtures\TestClassObjectArgs;
+use Celema\Wire\Creator;
+use Celema\Wire\Tests\Fixtures\ResolvesAbstractFunctionsProxy;
+use Celema\Wire\Tests\Fixtures\TestClass;
+use Celema\Wire\Tests\Fixtures\TestClassInject;
+use Celema\Wire\Tests\Fixtures\TestClassObjectArgs;
 use ReflectionClass;
 use ReflectionMethod;
 

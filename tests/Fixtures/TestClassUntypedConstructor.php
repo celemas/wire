@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Celemas\Wire\Tests\Fixtures;
+namespace Celema\Wire\Tests\Fixtures;
 
 class TestClassUntypedConstructor
 {

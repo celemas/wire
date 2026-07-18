@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Celemas\Wire\Tests;
+namespace Celema\Wire\Tests;
 
-use Celemas\Wire\Call;
-use Celemas\Wire\Creator;
-use Celemas\Wire\Exception\WireException;
-use Celemas\Wire\Tests\Fixtures\Container;
-use Celemas\Wire\Tests\Fixtures\TestClassApp;
-use Celemas\Wire\Tests\Fixtures\TestClassCall;
-use Celemas\Wire\Tests\Fixtures\TestClassInject;
-use Celemas\Wire\Tests\Fixtures\TestClassRequest;
+use Celema\Wire\Call;
+use Celema\Wire\Creator;
+use Celema\Wire\Exception\WireException;
+use Celema\Wire\Tests\Fixtures\Container;
+use Celema\Wire\Tests\Fixtures\TestClassApp;
+use Celema\Wire\Tests\Fixtures\TestClassCall;
+use Celema\Wire\Tests\Fixtures\TestClassInject;
+use Celema\Wire\Tests\Fixtures\TestClassRequest;
 
 final class CallTest extends TestCase
 {

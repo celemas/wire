@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Celemas\Wire\Tests\Fixtures;
+namespace Celema\Wire\Tests\Fixtures;
 
-use Celemas\Wire\Inject;
-use Celemas\Wire\Type;
+use Celema\Wire\Inject;
+use Celema\Wire\Type;
 
 class TestClassNested
 {

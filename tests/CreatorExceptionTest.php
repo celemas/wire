@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Celemas\Wire\Tests;
+namespace Celema\Wire\Tests;
 
-use Celemas\Wire\Creator;
-use Celemas\Wire\Tests\Fixtures\TestClassThrowingCall;
-use Celemas\Wire\Tests\Fixtures\TestClassThrowingConstructor;
-use Celemas\Wire\Tests\Fixtures\TestClassThrowingFactory;
+use Celema\Wire\Creator;
+use Celema\Wire\Tests\Fixtures\TestClassThrowingCall;
+use Celema\Wire\Tests\Fixtures\TestClassThrowingConstructor;
+use Celema\Wire\Tests\Fixtures\TestClassThrowingFactory;
 use InvalidArgumentException;
 use LogicException;
 use RuntimeException;

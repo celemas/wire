@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Celemas\Wire\Tests;
+namespace Celema\Wire\Tests;
 
-use Celemas\Wire\ConstructorResolver;
-use Celemas\Wire\Inject;
-use Celemas\Wire\Tests\Fixtures\TestClass;
-use Celemas\Wire\Tests\Fixtures\TestClassConstructor;
-use Celemas\Wire\Tests\Fixtures\TestClassInjectCallback;
-use Celemas\Wire\Tests\Fixtures\TestClassUsingNested;
+use Celema\Wire\ConstructorResolver;
+use Celema\Wire\Inject;
+use Celema\Wire\Tests\Fixtures\TestClass;
+use Celema\Wire\Tests\Fixtures\TestClassConstructor;
+use Celema\Wire\Tests\Fixtures\TestClassInjectCallback;
+use Celema\Wire\Tests\Fixtures\TestClassUsingNested;
 
 final class ConstructorResolverTest extends TestCase
 {

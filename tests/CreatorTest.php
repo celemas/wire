@@ -2,22 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Celemas\Wire\Tests;
+namespace Celema\Wire\Tests;
 
-use Celemas\Wire\Creator;
-use Celemas\Wire\Exception\WireException;
-use Celemas\Wire\Inject;
-use Celemas\Wire\Tests\Fixtures\TestClass;
-use Celemas\Wire\Tests\Fixtures\TestClassApp;
-use Celemas\Wire\Tests\Fixtures\TestClassCallCounter;
-use Celemas\Wire\Tests\Fixtures\TestClassConstructor;
-use Celemas\Wire\Tests\Fixtures\TestClassDefault;
-use Celemas\Wire\Tests\Fixtures\TestClassInject;
-use Celemas\Wire\Tests\Fixtures\TestClassInjectCallback;
-use Celemas\Wire\Tests\Fixtures\TestClassMultiConstructor;
-use Celemas\Wire\Tests\Fixtures\TestClassObjectArgs;
-use Celemas\Wire\Tests\Fixtures\TestClassUsingNested;
-use Celemas\Wire\Tests\Fixtures\TestInterface;
+use Celema\Wire\Creator;
+use Celema\Wire\Exception\WireException;
+use Celema\Wire\Inject;
+use Celema\Wire\Tests\Fixtures\TestClass;
+use Celema\Wire\Tests\Fixtures\TestClassApp;
+use Celema\Wire\Tests\Fixtures\TestClassCallCounter;
+use Celema\Wire\Tests\Fixtures\TestClassConstructor;
+use Celema\Wire\Tests\Fixtures\TestClassDefault;
+use Celema\Wire\Tests\Fixtures\TestClassInject;
+use Celema\Wire\Tests\Fixtures\TestClassInjectCallback;
+use Celema\Wire\Tests\Fixtures\TestClassMultiConstructor;
+use Celema\Wire\Tests\Fixtures\TestClassObjectArgs;
+use Celema\Wire\Tests\Fixtures\TestClassUsingNested;
+use Celema\Wire\Tests\Fixtures\TestInterface;
 
 final class CreatorTest extends TestCase
 {

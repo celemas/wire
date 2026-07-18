@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Celemas\Wire\Tests;
+namespace Celema\Wire\Tests;
 
-use Celemas\Wire\CallableResolver;
-use Celemas\Wire\ConstructorResolver;
-use Celemas\Wire\Creator;
-use Celemas\Wire\Wire;
+use Celema\Wire\CallableResolver;
+use Celema\Wire\ConstructorResolver;
+use Celema\Wire\Creator;
+use Celema\Wire\Wire;
 use Psr\Container\ContainerInterface as Container;
 
 final class WireTest extends TestCase

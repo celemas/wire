@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Celemas\Wire;
+namespace Celema\Wire;
 
-use Celemas\Wire\Exception\WireException;
+use Celema\Wire\Exception\WireException;
 use ReflectionFunctionAbstract;
 
 final class ArgumentResolver

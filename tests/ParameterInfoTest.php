@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Celemas\Wire\Tests;
+namespace Celema\Wire\Tests;
 
-use Celemas\Wire\ParameterInfo;
-use Celemas\Wire\Tests\Fixtures\TestClassApp;
-use Celemas\Wire\Tests\Fixtures\TestClassUnionTypeConstructor;
+use Celema\Wire\ParameterInfo;
+use Celema\Wire\Tests\Fixtures\TestClassApp;
+use Celema\Wire\Tests\Fixtures\TestClassUnionTypeConstructor;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionClass;
 use ReflectionFunction;
@@ -21,9 +21,9 @@ final class ParameterInfoTest extends TestCase
 		$param = $constructor->getParameters()[0];
 
 		$this->assertSame(
-			'Celemas\Wire\Tests\Fixtures\TestClassUnionTypeConstructor::__construct('
-			. '..., Celemas\Wire\Tests\Fixtures\TestClassApp|'
-			. 'Celemas\Wire\Tests\Fixtures\TestClassRequest $param, ...)',
+			'Celema\Wire\Tests\Fixtures\TestClassUnionTypeConstructor::__construct('
+			. '..., Celema\Wire\Tests\Fixtures\TestClassApp|'
+			. 'Celema\Wire\Tests\Fixtures\TestClassRequest $param, ...)',
 			ParameterInfo::info($param),
 		);
 	}
@@ -36,8 +36,8 @@ final class ParameterInfoTest extends TestCase
 		$param = $rfun->getParameters()[0];
 
 		$this->assertSame(
-			'Celemas\Wire\Tests\ParameterInfoTest::{closure:Celemas\Wire\Tests\ParameterInfoTest'
-			. '::testParameterInfoFunction():33}(..., Celemas\Wire\Tests\Fixtures\TestClassApp $app, ...)',
+			'Celema\Wire\Tests\ParameterInfoTest::{closure:Celema\Wire\Tests\ParameterInfoTest'
+			. '::testParameterInfoFunction():33}(..., Celema\Wire\Tests\Fixtures\TestClassApp $app, ...)',
 			ParameterInfo::info($param),
 		);
 	}

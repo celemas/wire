@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Celemas\Wire\Tests\Fixtures;
+namespace Celema\Wire\Tests\Fixtures;
 
-use Celemas\Wire\WireContainer;
+use Celema\Wire\WireContainer;
 
 class WireizedContainer extends Container implements WireContainer
 {

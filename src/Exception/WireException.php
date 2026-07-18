@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Celemas\Wire\Exception;
+namespace Celema\Wire\Exception;
 
 use RuntimeException;
 

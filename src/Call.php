@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Celemas\Wire;
+namespace Celema\Wire;
 
 use Attribute;
-use Celemas\Wire\Exception\WireException;
+use Celema\Wire\Exception\WireException;
 
 /** @psalm-api */
 #[Attribute(Attribute::IS_REPEATABLE | Attribute::TARGET_CLASS)]

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Celemas\Wire\Tests\Fixtures;
+namespace Celema\Wire\Tests\Fixtures;
 
-use Celemas\Wire\CreatorInterface;
-use Celemas\Wire\ResolvesAbstractFunctions;
+use Celema\Wire\CreatorInterface;
+use Celema\Wire\ResolvesAbstractFunctions;
 use ReflectionFunctionAbstract;
 use ReflectionParameter;
 

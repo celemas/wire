@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Celemas\Wire\Tests;
+namespace Celema\Wire\Tests;
 
-use Celemas\Wire\CallableResolver;
-use Celemas\Wire\ConstructorResolver;
-use Celemas\Wire\Creator;
-use Celemas\Wire\Exception\WireException;
-use Celemas\Wire\Inject;
-use Celemas\Wire\Tests\Fixtures\Container;
-use Celemas\Wire\Tests\Fixtures\TestClass;
-use Celemas\Wire\Tests\Fixtures\TestClassApp;
-use Celemas\Wire\Tests\Fixtures\TestClassInject;
-use Celemas\Wire\Type;
+use Celema\Wire\CallableResolver;
+use Celema\Wire\ConstructorResolver;
+use Celema\Wire\Creator;
+use Celema\Wire\Exception\WireException;
+use Celema\Wire\Inject;
+use Celema\Wire\Tests\Fixtures\Container;
+use Celema\Wire\Tests\Fixtures\TestClass;
+use Celema\Wire\Tests\Fixtures\TestClassApp;
+use Celema\Wire\Tests\Fixtures\TestClassInject;
+use Celema\Wire\Type;
 
 final class InjectTest extends TestCase
 {
