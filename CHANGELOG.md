@@ -1,8 +1,11 @@
 # Changelog
 
-## [Unreleased](https://codeberg.org/celemas/wire/compare/0.6.0...HEAD)
+## [Unreleased](https://codeberg.org/celema/wire/compare/0.6.0...HEAD)
 
-No notable changes since the last release.
+### Breaking Changes
+
+- Rename the package from `celemas/wire` to `celema/wire` and the root namespace from `Celemas\Wire` to `Celema\Wire`.
+- Move the source repository to `codeberg.org/celema/wire` and update the project domain and contact email.
 
 ## [0.6.0](https://codeberg.org/celemas/wire/src/tag/0.6.0) (2026-05-12)
 
