@@ -144,9 +144,7 @@ final class CreatorTest extends TestCase
 		$creator = new Creator($this->container());
 		$tcun = $creator->create(
 			TestClassUsingNested::class,
-			injectCallback: static fn(Inject $inject): mixed => (
-				$inject->value . ' construct ' . $inject->meta['id']
-			),
+			injectCallback: static fn(Inject $inject): mixed => $inject->value . ' construct ' . $inject->meta['id'],
 			predefinedTypes: ['string' => 'predefined-value'],
 		);
 
@@ -160,9 +158,7 @@ final class CreatorTest extends TestCase
 		$tcun = $creator->create(
 			TestClassUsingNested::class,
 			constructor: 'create',
-			injectCallback: static fn(Inject $inject): mixed => (
-				$inject->value . ' create ' . $inject->meta['id']
-			),
+			injectCallback: static fn(Inject $inject): mixed => $inject->value . ' create ' . $inject->meta['id'],
 			predefinedTypes: ['string' => 'predefined-value'],
 		);
 

@@ -22,8 +22,8 @@ final class ParameterInfoTest extends TestCase
 
 		$this->assertSame(
 			'Celema\Wire\Tests\Fixtures\TestClassUnionTypeConstructor::__construct('
-			. '..., Celema\Wire\Tests\Fixtures\TestClassApp|'
-			. 'Celema\Wire\Tests\Fixtures\TestClassRequest $param, ...)',
+				. '..., Celema\Wire\Tests\Fixtures\TestClassApp|'
+				. 'Celema\Wire\Tests\Fixtures\TestClassRequest $param, ...)',
 			ParameterInfo::info($param),
 		);
 	}
@@ -37,7 +37,7 @@ final class ParameterInfoTest extends TestCase
 
 		$this->assertSame(
 			'Celema\Wire\Tests\ParameterInfoTest::{closure:Celema\Wire\Tests\ParameterInfoTest'
-			. '::testParameterInfoFunction():33}(..., Celema\Wire\Tests\Fixtures\TestClassApp $app, ...)',
+				. '::testParameterInfoFunction():33}(..., Celema\Wire\Tests\Fixtures\TestClassApp $app, ...)',
 			ParameterInfo::info($param),
 		);
 	}
