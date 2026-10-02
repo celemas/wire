@@ -4,7 +4,7 @@
 
 ### Breaking Changes
 
-- `Creator::create()` always builds a new object of the requested class. It no longer returns a registered container entry for that class; the container is only used for its parameters.
+- `Creator::create()` invokes the requested class's constructor or a specified factory method instead of looking up a registered container entry for that class; the container is only used for its parameters. Direct construction produces a new instance, while a factory method may return an existing one.
 - Remove the `WireContainer` interface. Containers that use Wire internally build their entries with `create()`, which never asks the container for the requested class, so they no longer need to expose raw definitions.
 - `CreatorInterface` gains `resolve()`.
 - Creating an interface, an abstract class, or a class without a public constructor throws a `WireException` instead of PHP's `Error`.

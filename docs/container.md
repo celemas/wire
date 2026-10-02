@@ -34,7 +34,7 @@ If there are abstract types like interfaces or abstract classes expected in the 
 
 ## Creating or resolving
 
-`Creator::create()` always builds a new object of the given class. The container is consulted for its parameters, but never for the class itself, so a registered entry for the class is ignored.
+`Creator::create()` invokes the given class's constructor or a specified factory method. The container is consulted for its parameters, but never for the class itself, so a registered entry for the class is ignored. A constructor produces a new instance; a [factory method](creator.md#factory-methods) controls whether its result is new or reused.
 
 `Creator::resolve()` returns the container's entry when the id is registered. The container then decides about the entry's lifetime (for example one shared instance or one per scope) and its configuration. Unregistered classes are created like with `create()`.
 
@@ -42,7 +42,7 @@ If there are abstract types like interfaces or abstract classes expected in the 
 --8<-- "container-resolve.php:10"
 ```
 
-Use `resolve()` wherever an object should come from the container if it has one, such as a router that autowires controller arguments. Use `create()` for objects that are deliberately built anew, and inside container implementations that construct their own entries.
+Use `resolve()` wherever an object should come from the container if it has one, such as a router that autowires controller arguments. Use `create()` to invoke construction directly rather than retrieve a registered entry, including inside container implementations that construct their own entries.
 
 Predefined types apply to the parameters of a created object. They do not replace a registered entry that `resolve()` returns.
 

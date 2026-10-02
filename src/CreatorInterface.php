@@ -10,8 +10,10 @@ use Psr\Container\ContainerInterface as Container;
 interface CreatorInterface
 {
 	/**
-	 * Builds a new instance of `$class`. The container is only consulted for
-	 * its parameters, never for `$class` itself.
+	 * Invokes the constructor of `$class` or the specified factory method.
+	 * The container is only consulted for its parameters, never for `$class`
+	 * itself. A constructor produces a new instance; a factory controls
+	 * whether its result is new or reused.
 	 *
 	 * @param class-string $class
 	 */

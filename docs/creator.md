@@ -23,6 +23,8 @@ If a class uses a static factory method to create an instance, you can pass the 
 --8<-- "creator-factory-method.php:7"
 ```
 
+Wire invokes the factory on every `create()` call without looking up the requested class in the container. The factory controls the identity of the returned object: it may create a new instance or return an existing one, such as a singleton. Unlike direct constructor invocation, this does not guarantee a fresh instance.
+
 ## Parameters with default values
 
 If a parameter has a default value and is otherwise unresolvable, the default value is used:
