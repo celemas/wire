@@ -1,6 +1,10 @@
 # Changelog
 
-## [Unreleased](https://codefloe.com/celema/wire/compare/0.7.0...HEAD)
+## [Unreleased](https://codefloe.com/celema/wire/compare/0.8.0...HEAD)
+
+No notable changes since the last release.
+
+## [0.8.0](https://codefloe.com/celema/wire/src/tag/0.8.0) (2026-10-02)
 
 ### Breaking Changes
 
