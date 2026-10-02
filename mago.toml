@@ -26,4 +26,5 @@ integrations = []
 literal-named-argument = { enabled = false }
 no-else-clause = { enabled = false }
 no-isset = { enabled = false }
+prefer-early-continue = { enabled = false }
 too-many-methods = { exclude = ["tests"] }
