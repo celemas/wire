@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Celema\Wire\Tests\Fixtures;
 
+use Celema\Wire\Creator;
 use Closure;
 use Exception;
 use Psr\Container\ContainerInterface;
@@ -94,12 +95,14 @@ final class ScopedContainer implements ContainerInterface
 		}
 
 		if (is_string($definition)) {
-			if ($this->has($definition)) {
-				return $this->get($definition);
+			// Construct class definitions before resolving aliases: the entry's id
+			// may be the class itself, and looking it up again would recurse.
+			if (class_exists($definition)) {
+				return new Creator($this)->create($definition);
 			}
 
-			if (class_exists($definition)) {
-				return new $definition();
+			if ($this->has($definition)) {
+				return $this->get($definition);
 			}
 		}
 

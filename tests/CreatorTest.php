@@ -252,6 +252,53 @@ final class CreatorTest extends TestCase
 		new Creator($container)->resolve('config');
 	}
 
+	public function testResolveSharesAutowiredContainerEntriesAcrossScopes(): void
+	{
+		$root = $this->scopedContainer();
+		$root->add(TestClassCallCounter::class, TestClassCallCounter::class);
+		$scope1 = $root->scope();
+		$scope2 = $root->scope();
+		$creator1 = new Creator($scope1);
+		$creator2 = new Creator($scope2);
+		$instance = $creator1->resolve(TestClassCallCounter::class);
+
+		$this->assertInstanceOf(TestClassCallCounter::class, $instance);
+		$this->assertSame($instance, $creator1->resolve(TestClassCallCounter::class));
+		$this->assertSame($instance, $creator2->resolve(TestClassCallCounter::class));
+		$this->assertSame($instance, $root->get(TestClassCallCounter::class));
+		$this->assertSame(1, $instance->calls);
+
+		$created = $creator1->create(TestClassCallCounter::class);
+
+		$this->assertNotSame($instance, $created);
+		$this->assertSame(1, $created->calls);
+		$this->assertSame($instance, $creator1->resolve(TestClassCallCounter::class));
+	}
+
+	public function testResolveScopesAutowiredContainerEntriesAndTheirDependencies(): void
+	{
+		$root = $this->scopedContainer();
+		$root->add(TestClassConstructor::class, TestClassConstructor::class, $root::SCOPED);
+		$scope1 = $root->scope();
+		$scope2 = $root->scope();
+		$dependency1 = new TestClass('scope1');
+		$dependency2 = new TestClass('scope2');
+		$scope1->add(TestClass::class, $dependency1);
+		$scope2->add(TestClass::class, $dependency2);
+		$creator1 = new Creator($scope1);
+		$creator2 = new Creator($scope2);
+		$instance1 = $creator1->resolve(TestClassConstructor::class);
+		$instance2 = $creator2->resolve(TestClassConstructor::class);
+
+		$this->assertInstanceOf(TestClassConstructor::class, $instance1);
+		$this->assertInstanceOf(TestClassConstructor::class, $instance2);
+		$this->assertSame($instance1, $creator1->resolve(TestClassConstructor::class));
+		$this->assertSame($instance2, $creator2->resolve(TestClassConstructor::class));
+		$this->assertNotSame($instance1, $instance2);
+		$this->assertSame($dependency1, $instance1->testobj);
+		$this->assertSame($dependency2, $instance2->testobj);
+	}
+
 	public function testResolveHonorsSharedLifetimeAcrossScopes(): void
 	{
 		$root = $this->scopedContainer();
