@@ -127,7 +127,7 @@ public function myCallable(
 
 ### `Celema\Wire\Type::Create`
 
-Must be a fully qualified class name which the creator attemtps to create.
+Must be a fully qualified class name which the creator attempts to create. The result is always a new object, even if the class is registered in the container (see [Creating or resolving](container.md#creating-or-resolving)).
 
 ```php
 public function myCallable(

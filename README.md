@@ -56,6 +56,8 @@ When you pass a scoped container to `Creator`, callable resolvers and `Inject` e
 
 This allows parent-owned definitions (for example root shared services) and scope-local overrides (for example request-local values) to work together safely.
 
+`Creator::resolve()` returns a registered entry from the container, so its lifetime applies; `Creator::create()` always builds a new object and uses the container only for its parameters.
+
 ## License
 
 This project is licensed under the [MIT license](LICENSE.md).

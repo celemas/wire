@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Celema\Wire\Tests\Fixtures;
 
-use Celema\Wire\WireContainer;
 use Closure;
 use Exception;
+use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface as NotFoundException;
 
-final class ScopedWireContainer implements WireContainer
+final class ScopedContainer implements ContainerInterface
 {
 	public const string SHARED = 'shared';
 	public const string SCOPED = 'scoped';
@@ -75,17 +75,6 @@ final class ScopedWireContainer implements WireContainer
 		}
 
 		return $result;
-	}
-
-	public function definition(string $id): mixed
-	{
-		$resolved = $this->findEntry($id);
-
-		if ($resolved === null) {
-			throw $this->notFound();
-		}
-
-		return $resolved[1]['definition'];
 	}
 
 	/** @return null|array{0: self, 1: array{definition: mixed, lifetime: string}} */

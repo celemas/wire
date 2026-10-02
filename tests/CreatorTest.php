@@ -166,108 +166,119 @@ final class CreatorTest extends TestCase
 		$this->assertSame('predefined-value', $tcun->tcn->predefined->value);
 	}
 
-	public function testResolveFromContainer(): void
+	public function testCreateNeverUsesTheContainerForTheRequestedClass(): void
+	{
+		$container = $this->container();
+		$entry = new TestClass('entry');
+		$container->add(TestClass::class, $entry);
+		$creator = new Creator($container);
+		$testobj = $creator->create(TestClass::class);
+
+		$this->assertNotSame($entry, $testobj);
+		$this->assertSame('', $testobj->str);
+	}
+
+	public function testCreateRejectsTypesThatCannotBeInstantiated(): void
+	{
+		$this->throws(WireException::class, 'cannot be instantiated');
+
+		$container = $this->container();
+		$container->add(TestInterface::class, new TestClass('text'));
+		new Creator($container)->create(TestInterface::class);
+	}
+
+	public function testResolveReturnsTheContainerEntry(): void
 	{
 		$container = $this->container();
 		$container->add(TestInterface::class, new TestClass('text'));
 		$creator = new Creator($container);
-		$testobj = $creator->create(TestInterface::class);
+		$testobj = $creator->resolve(TestInterface::class);
 
 		$this->assertInstanceof(TestClass::class, $testobj);
 		$this->assertSame('text', $testobj->str);
 	}
 
-	public function testResolveFromContainerDoesNotApplyCallAttributes(): void
+	public function testResolveDoesNotApplyCallAttributesToContainerEntries(): void
 	{
 		$container = $this->container();
 		$entry = new TestClassCallCounter();
 		$container->add(TestClassCallCounter::class, $entry);
 		$creator = new Creator($container);
-		$first = $creator->create(TestClassCallCounter::class);
-		$second = $creator->create(TestClassCallCounter::class);
+		$first = $creator->resolve(TestClassCallCounter::class);
+		$second = $creator->resolve(TestClassCallCounter::class);
 
 		$this->assertSame($entry, $first);
 		$this->assertSame($first, $second);
 		$this->assertSame(0, $entry->calls);
 	}
 
-	public function testResolveWithoutContainerAppliesCallAttributes(): void
+	public function testResolveCreatesUnregisteredClasses(): void
 	{
-		$creator = new Creator();
-		$entry = $creator->create(TestClassCallCounter::class);
+		$creator = new Creator($this->container());
+		$testobj = $creator->resolve(
+			TestClassObjectArgs::class,
+			predefinedTypes: [
+				TestClass::class => new TestClass('predefined'),
+				'string' => 'teststring',
+			],
+		);
+		$counter = $creator->resolve(TestClassCallCounter::class);
 
-		$this->assertSame(1, $entry->calls);
+		$this->assertInstanceOf(TestClassObjectArgs::class, $testobj);
+		$this->assertSame('predefined', $testobj->testobj->str);
+		$this->assertSame(1, $counter->calls);
 	}
 
-	public function testResolveFromWireContainerNoInstance(): void
+	public function testResolveWithoutContainerCreates(): void
 	{
-		$container = $this->wireContainer();
-		$container->add(TestClass::class);
-		$creator = new Creator($container);
-		$testobj = $creator->create(TestClass::class);
-
-		$this->assertInstanceof(TestClass::class, $testobj);
-		$this->assertSame('', $testobj->str);
-	}
-
-	public function testResolveFromWireContainerInstance(): void
-	{
-		$container = $this->wireContainer();
-		$container->add(TestClass::class, new TestClass('text'));
-		$creator = new Creator($container);
-		$testobj = $creator->create(TestClass::class);
-
-		$this->assertInstanceof(TestClass::class, $testobj);
-		$this->assertSame('text', $testobj->str);
-	}
-
-	public function testResolveInterfaceMappingFromWireContainer(): void
-	{
-		$container = $this->wireContainer();
-		$container->add(TestInterface::class, TestClass::class);
-		$creator = new Creator($container);
-		$testobj = $creator->create(TestInterface::class);
+		$testobj = new Creator()->resolve(TestClass::class);
 
 		$this->assertInstanceOf(TestClass::class, $testobj);
 	}
 
-	public function testScopeDefinitionCanResolveParentEntry(): void
+	public function testResolveRejectsUnknownIds(): void
 	{
-		$root = $this->scopedWireContainer();
-		$root->add(TestClass::class, TestClass::class);
-		$scope = $root->scope();
+		$this->throws(WireException::class, 'neither a container entry nor a class');
 
-		$this->assertSame(TestClass::class, $scope->definition(TestClass::class));
+		new Creator($this->container())->resolve('missing-entry');
 	}
 
-	public function testResolveParentOwnedSharedEntryThroughScope(): void
+	public function testResolveRejectsEntriesThatAreNoObjects(): void
 	{
-		$root = $this->scopedWireContainer();
+		$this->throws(WireException::class, 'is not an object');
+
+		$container = $this->container();
+		$container->add('config', ['debug' => true]);
+		new Creator($container)->resolve('config');
+	}
+
+	public function testResolveHonorsSharedLifetimeAcrossScopes(): void
+	{
+		$root = $this->scopedContainer();
 		$root->add(TestClass::class, static fn() => new TestClass('shared'));
 		$scope1 = $root->scope();
 		$scope2 = $root->scope();
 		$creator1 = new Creator($scope1);
 		$creator2 = new Creator($scope2);
-		$instance11 = $creator1->create(TestClass::class);
-		$instance12 = $creator1->create(TestClass::class);
-		$instance2 = $creator2->create(TestClass::class);
+		$instance11 = $creator1->resolve(TestClass::class);
+		$instance12 = $creator1->resolve(TestClass::class);
+		$instance2 = $creator2->resolve(TestClass::class);
 
-		$this->assertSame(true, $scope1->has(TestClass::class));
 		$this->assertSame($instance11, $instance12);
 		$this->assertSame($instance11, $instance2);
 	}
 
-	public function testResolveParentOwnedScopedEntryThroughScope(): void
+	public function testResolveHonorsScopedLifetime(): void
 	{
-		$root = $this->scopedWireContainer();
+		$root = $this->scopedContainer();
 		$root->add(TestClass::class, static fn() => new TestClass('scoped'), $root::SCOPED);
 		$scope1 = $root->scope();
 		$scope2 = $root->scope();
 		$creator1 = new Creator($scope1);
 		$creator2 = new Creator($scope2);
-		$instance11 = $creator1->create(TestClass::class);
-		$instance12 = $creator1->create(TestClass::class);
-		$instance2 = $creator2->create(TestClass::class);
+		$instance11 = $creator1->resolve(TestClass::class);
+		$instance12 = $creator1->resolve(TestClass::class);
+		$instance2 = $creator2->resolve(TestClass::class);
 
 		$this->assertSame($instance11, $instance12);
 		$this->assertNotSame($instance11, $instance2);

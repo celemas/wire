@@ -2,7 +2,16 @@
 
 ## [Unreleased](https://codefloe.com/celema/wire/compare/0.7.0...HEAD)
 
-No notable changes since the last release.
+### Breaking Changes
+
+- `Creator::create()` always builds a new object of the requested class. It no longer returns a registered container entry for that class; the container is only used for its parameters.
+- Remove the `WireContainer` interface. Containers that use Wire internally build their entries with `create()`, which never asks the container for the requested class, so they no longer need to expose raw definitions.
+- `CreatorInterface` gains `resolve()`.
+- Creating an interface, an abstract class, or a class without a public constructor throws a `WireException` instead of PHP's `Error`.
+
+### Added
+
+- `Creator::resolve()` returns the container's entry for a registered id, honoring the entry's lifetime and configuration, and creates unregistered classes like `create()`.
 
 ## [0.7.0](https://codefloe.com/celema/wire/src/tag/0.7.0) (2026-07-18)
 

@@ -6,8 +6,7 @@ namespace Celema\Wire\Tests;
 
 use Celema\Wire\Creator;
 use Celema\Wire\Tests\Fixtures\Container;
-use Celema\Wire\Tests\Fixtures\ScopedWireContainer;
-use Celema\Wire\Tests\Fixtures\WireizedContainer;
+use Celema\Wire\Tests\Fixtures\ScopedContainer;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
 class TestCase extends BaseTestCase
@@ -20,17 +19,9 @@ class TestCase extends BaseTestCase
 		return $container;
 	}
 
-	public function wireContainer(): WireizedContainer
+	public function scopedContainer(): ScopedContainer
 	{
-		$container = new WireizedContainer();
-		$container->add(Container::class, $container);
-
-		return $container;
-	}
-
-	public function scopedWireContainer(): ScopedWireContainer
-	{
-		return new ScopedWireContainer();
+		return new ScopedContainer();
 	}
 
 	public function creator(): Creator

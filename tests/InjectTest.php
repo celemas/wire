@@ -97,7 +97,7 @@ final class InjectTest extends TestCase
 
 	public function testInjectEntryResolvesScopeFirst(): void
 	{
-		$root = $this->scopedWireContainer();
+		$root = $this->scopedContainer();
 		$root->add('the-entry', new TestClassApp('root-entry'));
 		$scope = $root->scope();
 		$scope->add('the-entry', new TestClassApp('scope-entry'));

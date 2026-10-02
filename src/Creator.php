@@ -19,7 +19,7 @@ class Creator implements CreatorInterface
 	private static array $reflectionCache = [];
 
 	public function __construct(
-		protected readonly Container|WireContainer|null $container = null,
+		protected readonly ?Container $container = null,
 	) {}
 
 	/** @param class-string $class */
@@ -31,8 +31,6 @@ class Creator implements CreatorInterface
 		?callable $injectCallback = null,
 		string $constructor = '',
 	): object {
-		$createdByWire = true;
-
 		if ($constructor !== '') {
 			// Factory method: wrap reflection lookup, let invocation bubble
 			try {
@@ -51,28 +49,7 @@ class Creator implements CreatorInterface
 				injectCallback: $injectCallback,
 			);
 			$instance = $rmethod->invoke(null, ...$args);
-		} elseif ($this->container && $this->container->has($class)) {
-			if (is_a($this->container, WireContainer::class)) {
-				/** @psalm-suppress MixedAssignment */
-				$value = $this->container->definition($class);
-
-				if (is_string($value) && class_exists($value)) {
-					$instance = $this->resolveConstructor(
-						$value,
-						$predefinedArgs,
-						$predefinedTypes,
-						$injectCallback,
-					);
-				} else {
-					$createdByWire = false;
-					/** @psalm-suppress MixedAssignment */
-					$instance = $this->container->get($class);
-				}
-			} else {
-				$createdByWire = false;
-				/** @psalm-suppress MixedAssignment */
-				$instance = $this->container->get($class);
-			}
+			assert(is_object($instance), 'Factory methods must return an object');
 		} else {
 			$instance = $this->resolveConstructor(
 				$class,
@@ -82,13 +59,33 @@ class Creator implements CreatorInterface
 			);
 		}
 
-		assert(is_object($instance), 'Created instance must be an object');
+		return $this->applyCallAttributes($instance, $predefinedTypes, $injectCallback);
+	}
 
-		if (!$createdByWire) {
-			return $instance;
+	#[Override]
+	public function resolve(
+		string $id,
+		array $predefinedTypes = [],
+		?callable $injectCallback = null,
+	): object {
+		if (!$this->container?->has($id)) {
+			if (!class_exists($id)) {
+				throw new WireException('Unresolvable: ' . $id . ' is neither a container entry nor a class');
+			}
+
+			return $this->create($id, predefinedTypes: $predefinedTypes, injectCallback: $injectCallback);
 		}
 
-		return $this->applyCallAttributes($instance, $predefinedTypes, $injectCallback);
+		// The container owns the entry's lifetime and configuration, including
+		// its calls, so the result is returned as is.
+		/** @psalm-suppress MixedAssignment */
+		$instance = $this->container->get($id);
+
+		if (!is_object($instance)) {
+			throw new WireException('Unresolvable: container entry ' . $id . ' is not an object');
+		}
+
+		return $instance;
 	}
 
 	/** @param class-string $class */
@@ -105,6 +102,10 @@ class Creator implements CreatorInterface
 				'Unresolvable: ' . $class . ' - ' . $e->getMessage(),
 				previous: $e,
 			);
+		}
+
+		if (!$rcls->isInstantiable()) {
+			throw new WireException('Unresolvable: ' . $class . ' cannot be instantiated');
 		}
 
 		$args = new ConstructorResolver($this)->resolve(

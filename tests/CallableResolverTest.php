@@ -86,7 +86,7 @@ final class CallableResolverTest extends TestCase
 
 	public function testResolverUsesScopeLocalValues(): void
 	{
-		$root = $this->scopedWireContainer();
+		$root = $this->scopedContainer();
 		$root->add(TestClassApp::class, new TestClassApp('root'));
 		$scope = $root->scope();
 		$scope->add(TestClassApp::class, new TestClassApp('scope'));
