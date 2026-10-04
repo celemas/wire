@@ -23,7 +23,7 @@ final class ParameterResolver
 
 		if ($type instanceof ReflectionNamedType) {
 			$container = $this->creator->container();
-			$typeName = ltrim($type->getName(), '?');
+			$typeName = $type->getName();
 
 			if (isset($predefinedTypes[$typeName])) {
 				return $predefinedTypes[$typeName];

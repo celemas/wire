@@ -35,7 +35,7 @@ final class ArgumentResolver
 		$countPredefined = count($combinedArgs);
 		$parameterResolver = new ParameterResolver($this->creator);
 
-		if (array_is_list($combinedArgs) && $countPredefined > 0) {
+		if (array_is_list($combinedArgs)) {
 			// predefined args are not named, use them as they are
 			$args = $combinedArgs;
 			$parameters = array_slice($parameters, $countPredefined);
