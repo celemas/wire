@@ -43,10 +43,5 @@
 			],
 		},
 
-		// Without a constructor, ReflectionClass::newInstance() ignores the
-		// predefined arguments, so passing fewer of them changes nothing.
-		ArrayOneItem: {
-			ignore: ['Celema\\Wire\\ConstructorResolver::resolve'],
-		},
 	},
 }

@@ -2,7 +2,9 @@
 
 ## [Unreleased](https://codefloe.com/celema/wire/compare/0.8.0...HEAD)
 
-No notable changes since the last release.
+### Breaking Changes
+
+- `Creator::create()` and `ConstructorResolver::resolve()` throw a `WireException` when predefined arguments are given for a class without a constructor. Before, the arguments were silently dropped.
 
 ## [0.8.0](https://codefloe.com/celema/wire/src/tag/0.8.0) (2026-10-02)
 

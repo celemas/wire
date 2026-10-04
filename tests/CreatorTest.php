@@ -18,9 +18,22 @@ use Celema\Wire\Tests\Fixtures\TestClassMultiConstructor;
 use Celema\Wire\Tests\Fixtures\TestClassObjectArgs;
 use Celema\Wire\Tests\Fixtures\TestClassUsingNested;
 use Celema\Wire\Tests\Fixtures\TestInterface;
+use stdClass;
 
 final class CreatorTest extends TestCase
 {
+	public function testCreateWithoutConstructorRejectsPredefinedArgs(): void
+	{
+		$this->throws(WireException::class, 'Unresolvable: stdClass has no constructor, but arguments were given');
+
+		new Creator()->create(stdClass::class, predefinedArgs: ['value' => 'ignored']);
+	}
+
+	public function testCreateWithoutConstructorAndArgs(): void
+	{
+		$this->assertInstanceOf(stdClass::class, new Creator()->create(stdClass::class));
+	}
+
 	public function testSimpleResolve(): void
 	{
 		$creator = new Creator($this->container());

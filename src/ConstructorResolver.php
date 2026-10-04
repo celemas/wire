@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Celema\Wire;
 
+use Celema\Wire\Exception\WireException;
 use Override;
 use ReflectionClass;
 
@@ -30,7 +31,14 @@ class ConstructorResolver
 			return $this->resolveArgs($constructor, $predefinedArgs, $predefinedTypes, $injectCallback);
 		}
 
-		return $predefinedArgs;
+		// Arguments for a class without a constructor would be dropped silently.
+		if ($predefinedArgs !== []) {
+			throw new WireException(
+				'Unresolvable: ' . $rcls->getName() . ' has no constructor, but arguments were given',
+			);
+		}
+
+		return [];
 	}
 
 	#[Override]
