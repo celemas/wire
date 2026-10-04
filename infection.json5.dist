@@ -9,10 +9,44 @@
 		html: '.infection/infection.html',
 		summary: '.infection/summary.log',
 	},
+	// Ratchet: raise these with the reached score, never lower them.
+	minMsi: 100,
+	minCoveredMsi: 100,
 	// CI mutates only the lines changed by a push; pushes without source
 	// changes produce no mutants and must not fail the threshold.
 	ignoreMsiWithNoMutations: true,
+	// Ignores below cover equivalent mutants: they change no observable behavior.
+	// Keep them scoped to a method so that new code elsewhere is still mutated.
 	mutators: {
 		'@default': true,
+
+		// Creator is not final: these protected methods are extension points
+		// for subclasses. Trait methods are private to the using class either way.
+		ProtectedVisibility: {
+			ignore: [
+				'Celema\\Wire\\Creator::resolveConstructor',
+				'Celema\\Wire\\Creator::applyCallAttributes',
+				'Celema\\Wire\\ResolvesAbstractFunctions',
+			],
+		},
+
+		// Reflection cache: dropping it recreates an equal ReflectionClass.
+		AssignCoalesce: {
+			ignore: ['Celema\\Wire\\Creator::getReflectionClass'],
+		},
+
+		// String concatenation already casts the value or Stringable type.
+		CastString: {
+			ignore: [
+				'Celema\\Wire\\Injected::getObject',
+				'Celema\\Wire\\ParameterInfo::info',
+			],
+		},
+
+		// Without a constructor, ReflectionClass::newInstance() ignores the
+		// predefined arguments, so passing fewer of them changes nothing.
+		ArrayOneItem: {
+			ignore: ['Celema\\Wire\\ConstructorResolver::resolve'],
+		},
 	},
 }
