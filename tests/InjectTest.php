@@ -190,7 +190,7 @@ final class InjectTest extends TestCase
 
 	public function testInjectEntryWithoutContainer(): void
 	{
-		$this->throws(WireException::class, 'No container');
+		$this->throws(WireException::class, 'No container available to resolve injected id "no-container"!');
 
 		$resolver = new CallableResolver(new Creator());
 		$resolver->resolve([TestClassInject::class, 'injectEntryWithoutContainer']);

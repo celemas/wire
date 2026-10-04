@@ -180,7 +180,10 @@ final class CreatorTest extends TestCase
 
 	public function testCreateRejectsTypesThatCannotBeInstantiated(): void
 	{
-		$this->throws(WireException::class, 'cannot be instantiated');
+		$this->throws(
+			WireException::class,
+			'Unresolvable: Celema\\Wire\\Tests\\Fixtures\\TestInterface cannot be instantiated',
+		);
 
 		$container = $this->container();
 		$container->add(TestInterface::class, new TestClass('text'));
@@ -238,14 +241,14 @@ final class CreatorTest extends TestCase
 
 	public function testResolveRejectsUnknownIds(): void
 	{
-		$this->throws(WireException::class, 'neither a container entry nor a class');
+		$this->throws(WireException::class, 'Unresolvable: missing-entry is neither a container entry nor a class');
 
 		new Creator($this->container())->resolve('missing-entry');
 	}
 
 	public function testResolveRejectsEntriesThatAreNoObjects(): void
 	{
-		$this->throws(WireException::class, 'is not an object');
+		$this->throws(WireException::class, 'Unresolvable: container entry config is not an object');
 
 		$container = $this->container();
 		$container->add('config', ['debug' => true]);
