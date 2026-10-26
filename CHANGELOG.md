@@ -2,7 +2,9 @@
 
 ## [Unreleased](https://codefloe.com/celema/wire/compare/0.9.0...HEAD)
 
-No notable changes since the last release.
+### Fixed
+
+- A parameter typed with a class that cannot be instantiated, such as `Closure`, an abstract class, or an enum, gets its default value instead of throwing a `WireException`. A class that can be instantiated is still created, even when the parameter has a default value.
 
 ## [0.9.0](https://codefloe.com/celema/wire/src/tag/0.9.0) (2026-10-06)
 

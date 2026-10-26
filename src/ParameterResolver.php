@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Celema\Wire;
 
 use Celema\Wire\Exception\WireException;
+use ReflectionClass;
 use ReflectionNamedType;
 use ReflectionParameter;
 
@@ -34,6 +35,10 @@ final class ParameterResolver
 			}
 
 			if (class_exists($typeName)) {
+				if ($param->isDefaultValueAvailable() && !new ReflectionClass($typeName)->isInstantiable()) {
+					return $param->getDefaultValue();
+				}
+
 				return $this->creator->create(
 					$typeName,
 					predefinedTypes: $predefinedTypes,

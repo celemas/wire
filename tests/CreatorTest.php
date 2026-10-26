@@ -16,7 +16,10 @@ use Celema\Wire\Tests\Fixtures\TestClassInject;
 use Celema\Wire\Tests\Fixtures\TestClassInjectCallback;
 use Celema\Wire\Tests\Fixtures\TestClassMultiConstructor;
 use Celema\Wire\Tests\Fixtures\TestClassObjectArgs;
+use Celema\Wire\Tests\Fixtures\TestClassRequiredClosure;
+use Celema\Wire\Tests\Fixtures\TestClassUninstantiableDefaults;
 use Celema\Wire\Tests\Fixtures\TestClassUsingNested;
+use Celema\Wire\Tests\Fixtures\TestEnum;
 use Celema\Wire\Tests\Fixtures\TestInterface;
 use stdClass;
 
@@ -105,6 +108,23 @@ final class CreatorTest extends TestCase
 		$this->assertSame('default', $testobj->name);
 		$this->assertSame(73, $testobj->number);
 		$this->assertInstanceOf(TestClass::class, $testobj->testobj);
+	}
+
+	public function testUninstantiableClassesFallBackToTheirDefaultValues(): void
+	{
+		$testobj = new Creator($this->container())->create(TestClassUninstantiableDefaults::class);
+
+		$this->assertInstanceOf(TestClass::class, $testobj->testobj);
+		$this->assertNull($testobj->build);
+		$this->assertNull($testobj->abstract);
+		$this->assertSame(TestEnum::Second, $testobj->choice);
+	}
+
+	public function testUninstantiableClassesWithoutDefaultValueStayUnresolvable(): void
+	{
+		$this->throws(WireException::class, 'Unresolvable: Closure cannot be instantiated');
+
+		new Creator($this->container())->create(TestClassRequiredClosure::class);
 	}
 
 	public function testResolveWithSimpleFactoryMethod(): void

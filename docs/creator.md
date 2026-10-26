@@ -33,6 +33,12 @@ If a parameter has a default value and is otherwise unresolvable, the default va
 --8<-- "creator-default-values.php:7"
 ```
 
+The default value also stands in for a class that cannot be instantiated, such as `Closure`, an abstract class, or an enum. A class that can be instantiated is always created, even when the parameter has a default value, so a dependency that cannot be resolved still throws a `WireException`:
+
+```php
+--8<-- "creator-default-uninstantiable.php:7"
+```
+
 ## Assist the creator with arguments that are already available
 
 ### Predefined arguments
